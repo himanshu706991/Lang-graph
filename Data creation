@@ -76,3 +76,35 @@ for domain in ["Property", "Casualty", "Banking", "Automobile", "Technical"]:
     generate_flowchart_image(f"data/images/{domain}_flow.png", domain)
 
 print("✅ Dummy data generation complete. SQL, PDFs, and images ready.")
+
+
+$$$$$44
+ the file Multi Agent Langgraph. This includes:
+
+✅ SQLite DB with 5 domain tables: Property, Casualty, Banking, Automobile, Technical
+
+✅ 5 PDF reports with dummy paragraphs using Faker
+
+✅ 5 flowchart-style images simulating data diagrams
+
+✅ Clean folder structure and saved outputs
+
+Next Step: I’ll now implement:
+
+🧠 Vector DB generation for PDFs (using FAISS)
+
+🧠 OCR + vector DB for images
+
+🤖 LangGraph pipeline with:
+
+Routing agent
+
+SQL agent
+
+PDF RAG agent
+
+OCR image RAG agent
+
+Human critic agent
+
+Final summarizer
