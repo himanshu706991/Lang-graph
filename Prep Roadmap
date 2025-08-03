@@ -66,3 +66,104 @@ Simple query box + response + flow visualization.
 
 ✅ Step 8: Documentation
 Add README.md and architecture diagram.
+
+#######ppt
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.dml.color import RGBColor
+
+# Create presentation
+prs = Presentation()
+
+# Slide 1: Title Slide
+slide_1 = prs.slides.add_slide(prs.slide_layouts[0])
+title, subtitle = slide_1.shapes.title, slide_1.placeholders[1]
+title.text = "Agentic AI System for Multi-Source Query Routing"
+subtitle.text = "SQL, PDF, and Image Flow Diagram Query Resolution"
+
+# Slide 2: Problem Statement
+slide_2 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_2.shapes.title.text = "Problem Statement"
+slide_2.placeholders[1].text = (
+    "Design an agentic AI system that routes user queries to the correct data source:\n"
+    "- SQL tables (millions of records)\n"
+    "- PDF documents (retrieved via RAG)\n"
+    "- Image-based data flow diagrams (via OCR)\n\n"
+    "Objective: Generate paragraph-style responses using appropriate tools and agents."
+)
+
+# Slide 3: High-Level Architecture
+slide_3 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_3.shapes.title.text = "High-Level Architecture"
+slide_3.placeholders[1].text = (
+    "1. User submits query\n"
+    "2. Router Agent determines data source (SQL, PDF, or Image)\n"
+    "3. Specialized Agent handles retrieval:\n"
+    "   - SQL Agent runs query\n"
+    "   - PDF Agent uses vector DB for RAG\n"
+    "   - Image Agent uses OCR + vector DB\n"
+    "4. Critic Agent validates & formats response\n"
+    "5. Final output delivered in paragraph format"
+)
+
+# Slide 4: Agent Roles
+slide_4 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_4.shapes.title.text = "Agent Responsibilities"
+slide_4.placeholders[1].text = (
+    "- **Router Agent**: Classifies the query intent (SQL, PDF, Image)\n"
+    "- **SQL Agent**: Executes SQL query & formats response\n"
+    "- **PDF Agent**: Uses embedding + FAISS to retrieve document chunks\n"
+    "- **Image Agent**: OCR → Embed → Vector Search → Summarize\n"
+    "- **Critic Agent**: Evaluates output & applies human-style feedback\n"
+    "- **Summarizer Agent**: Generates final, human-readable paragraph"
+)
+
+# Slide 5: Technology Stack
+slide_5 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_5.shapes.title.text = "Technology Stack"
+slide_5.placeholders[1].text = (
+    "- **LangGraph (LangChain)**: Multi-agent orchestration\n"
+    "- **Chroma/FAISS**: Vector DB for PDF and image embeddings\n"
+    "- **OCR (Tesseract)**: Extract text from flowchart diagrams\n"
+    "- **SQLAlchemy**: SQL access for structured data\n"
+    "- **GPT-4 / OpenAI**: Language model for reasoning and summarization\n"
+    "- **Docker**: Containerization and deployment\n"
+    "- **FastAPI** (optional): Serve as REST interface"
+)
+
+# Slide 6: Use Case Demo Flow
+slide_6 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_6.shapes.title.text = "Use Case Flow Example"
+slide_6.placeholders[1].text = (
+    "Example Query: 'What are the steps in the claims adjudication process?'\n"
+    "→ Routed to Image Agent (flow diagram)\n"
+    "→ OCR extracts flow steps\n"
+    "→ Vector search identifies relevant diagram chunk\n"
+    "→ Summarizer agent generates answer paragraph"
+)
+
+# Slide 7: Docker & Deployment
+slide_7 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_7.shapes.title.text = "Dockerization & Deployment"
+slide_7.placeholders[1].text = (
+    "- Dockerfile includes all dependencies (LangGraph, FAISS, OCR, etc.)\n"
+    "- Docker Compose for local multi-agent development\n"
+    "- Supports CI/CD integration for production workflows\n"
+    "- Optional FastAPI frontend for UI access or REST API calls"
+)
+
+# Slide 8: Summary & Benefits
+slide_8 = prs.slides.add_slide(prs.slide_layouts[1])
+slide_8.shapes.title.text = "Summary & Business Benefits"
+slide_8.placeholders[1].text = (
+    "- Automates routing of user queries to the most appropriate source\n"
+    "- Reduces manual triaging across unstructured & structured data\n"
+    "- Ensures scalable, human-feedback-informed decisioning\n"
+    "- Serves as a blueprint for enterprise-level knowledge orchestration"
+)
+
+# Save presentation
+pptx_path = "/mnt/data/Agentic_AI_MultiSource_Query_Routing.pptx"
+prs.save(pptx_path)
+pptx_path
+
